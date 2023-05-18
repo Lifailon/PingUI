@@ -1,7 +1,5 @@
 # PingUI (Ping User Interface)
 
-My first python job 😊
-
 💡 **Development stage**
 
 ### Prerelease screenshot
