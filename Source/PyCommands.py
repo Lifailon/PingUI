@@ -1,3 +1,35 @@
+### Clear
+import os
+def clear():
+    os.system(
+    'cls' if os.name == 'nt'
+    else 'clear')
+
+clear()
+
+### Methods
+import pandas as pd
+df = pd.DataFrame([[10, 20, 30], [100, 200, 300]],
+                  columns=['foo', 'bar', 'baz'])
+def get_methods(object, spacing=20):
+  methodList = []
+  for method_name in dir(object):
+    try:
+        if callable(getattr(object, method_name)):
+            methodList.append(str(method_name))
+    except Exception:
+        methodList.append(str(method_name))
+  processFunc = (lambda s: ' '.join(s.split())) or (lambda s: s)
+  for method in methodList:
+    try:
+        print(str(method.ljust(spacing)) + ' ' +
+              processFunc(str(getattr(object, method).__doc__)[0:90]))
+    except Exception:
+        print(method.ljust(spacing) + ' ' + ' getattr() failed')
+
+#get_methods(df['foo'])
+get_methods(sorted)
+
 ### Тип данных
 test = input()                      # ввода переменной с клавиатуры
 text = str(input("input number: ")) # предопределить тип данных
@@ -10,6 +42,11 @@ type(1.2)                           # тип данных float (число с �
 ### Sleep
 import time
 time.sleep(0.01)
+
+### Platform
+import platform
+oc = platform.system()
+oc == "Windows"
 
 ### Sorted
 arr = ["192.168.11.131 - NOT", "192.168.11.21 - OK", "192.168.11.11 - NOT"]
@@ -82,6 +119,7 @@ vlan = [10, 20, 30, 40]
 15 in vlan and 10 in vlan   # False № И
 15 in vlan or 10 in vlan    # True # ИЛИ
 
+password = "1234567"
 if len(password) < 8:
     print('Короткий пароль')
 
@@ -113,20 +151,7 @@ with open(r"C:\Users\Lifailon\Desktop\text.txt") as file:   # открыть ф�
         if "test" in line:                                  # если есть слово в строке
             print(line)                                     # выводить на экран
 
-### Clear()
-import os
-def clear():
-    os.system(
-    'cls' if os.name == 'nt'
-    else 'clear')
-
-clear()
-
-import os
-clear = lambda: os.system('cls' if os.name=='nt' else 'clear') 
-clear()
-
-### module os
+### Module OS
 #os.<function>(<params>)
 import os
 os.system("ping ya.ru")
@@ -182,8 +207,8 @@ arr.sort()              # отсортировать массив
 print(arr[1])           # значение 2-го индекса
 
 len(arr)                # кол-во элементов в массиве (Count)
-arr.count(333)          # кол-во одинаковых элементов по имени (wildcard) значения
-arr.insert(0,"text")    # добавить в начало (по номеру индекса)
+arr.count(33)           # кол-во одинаковых элементов по имени (wildcard) значения
+arr.insert(0,"text")    # добавить в начало (по номеру индекса): ['text', 22, 11, 33]
 arr.append("text")      # добавить в конец
 arr.pop(1)              # удалить элемент массива по индексу
 arr.remove(333)         # удалить элемент по имени
