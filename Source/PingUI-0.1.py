@@ -47,7 +47,7 @@ def ping_list(subnet):
         while len(threading.enumerate()) != 1:
             continue
 
-### fast mode (simulate not ping to output)
+### fast mode (simulate not ping for output)
     if Debug_mode.get() == False:
         time.sleep(1)
         if Avaliable_mode.get() == False:
