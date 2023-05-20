@@ -42,12 +42,12 @@ def ping_list(subnet):
         thread = threading.Thread(target=ping_run, args=[ip,net,arr])
         thread.start()
 
-### slow mode (work to no active threads)
+### slow mode (work to end active threads)
     if Debug_mode.get() == True:
         while len(threading.enumerate()) != 1:
             continue
 
-### fast mode (simulate not ping for output)
+### fast mode (simulate ping for output)
     if Debug_mode.get() == False:
         time.sleep(1)
         if Avaliable_mode.get() == False:
@@ -237,8 +237,8 @@ columns = ["IP-Address", "Status", "Time(ms)"]
 table = TreeColor(frame, columns=columns, show="headings")
 
 table.heading("IP-Address", text="IP-Address", anchor="center", command=lambda: sort_col(0, True))
-table.heading("Status", text="Status", anchor="center", command=lambda: sort_col(1, True))
-table.heading("Time(ms)", text="Time(ms)", anchor="center", command=lambda: sort_col(2, True))
+table.heading("Status", text="Status", anchor="center", command=lambda: sort_col(1, False))
+table.heading("Time(ms)", text="Time(ms)", anchor="center", command=lambda: sort_col(2, False))
  
 table.column("#1", anchor="center", minwidth=0, width=90)
 table.column("#2", anchor="center", minwidth=0, width=90)
