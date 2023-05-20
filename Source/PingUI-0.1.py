@@ -31,16 +31,6 @@ def ping_run(ip,net,arr):
         output = addr + " Not"
         arr += [output]
 
-### nslookup
-# addr = "77.88.55.242" # "192.168.3.1" 
-# ns_comm = "nslookup " + addr
-# ns_run = os.popen(ns_comm)
-# ns_array = ns_run.readlines()
-# if len(ns_array) != 3:
-#     ns_string = ns_array[3]
-#     ns_name = str(re.split("\s",ns_string)[-2])
-#     ns_name
-
 ### creat subnet array for thread
 def ping_list(subnet):
     arr = []
