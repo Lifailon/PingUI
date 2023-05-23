@@ -119,9 +119,15 @@ vlan = [10, 20, 30, 40]
 15 in vlan and 10 in vlan   # False № И
 15 in vlan or 10 in vlan    # True # ИЛИ
 
+### IF-ELSE
 password = "1234567"
+#password = "123456789012345678"
 if len(password) < 8:
-    print('Короткий пароль')
+    print("Слишком Короткий пароль")
+elif len(password) > 16:
+    print("Слишком длинный пароль")
+else:
+    print("Пароль валидный по длинне")
 
 ### File
 file = open(r"C:\Users\Lifailon\Desktop\test.txt","r") # открыть файл на чтение, символ r"" вначале подавляет экранирование (регулярные выражения)
@@ -327,7 +333,11 @@ for ip in range(1, 255):
 
 len(threading.enumerate())                                          # вывести кол-во активных потоков
 threading.enumerate()[2].is_alive()                                 # получить статус работы потока (True - работает) по индексу
+threading.enumerate()[2]._is_stopped
 threading.enumerate()[1]._args[0]                                   # значение первого аргумента переданного в функцию выполняемого потока
-thread.join()                                                       # блокирует вызывающий поток до тех пор, пока не завершится поток, чей метод .join() вызван
+thread.join()                                                       # блокирует вызывающий поток до тех пор, пока не завершится поток, чей метод .join() вызван 
+thread.join(1.5)                                                    # в скобках указывается время ожидания в секунда
+# Если в потоке thread1 был вызван метод потока thread2.join(), то поток thread1 будет приостановлен до тех пор, пока выполнение thread2 не завершится.
 thread.ident                                                        # идентификатор потока
 thread.name                                                         # имя потока
+threading.main_thread()                                             # основной поток
